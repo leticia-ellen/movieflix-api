@@ -1,0 +1,44 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Movieflix API",
+        "description": "API responsável por gerenciar os filmes do Movieflix",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/movies": {
+            "get": {
+                "tag": ["Movie"],
+                "summary": "Obter todos os filmes",
+                "responses":{
+                    "200": {
+                        "description": "Retorna uma lista de filmes",
+                        "content": {
+                            "application/json": {
+                                "shema": {
+                                    "type": "array",
+                                    "items":{
+                                        "$ref": "#/components/schemas/Movie"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "components":{
+                    "schemas": {
+                        "Movie": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "integer",
+                                    "description": "id do filme"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
